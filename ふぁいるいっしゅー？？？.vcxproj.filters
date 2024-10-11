@@ -18,8 +18,16 @@
     <ClCompile Include="ソース.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="FileDescripter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="X.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileDescripter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

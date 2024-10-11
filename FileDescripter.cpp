@@ -1,13 +1,6 @@
-/** /
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdint.h>
+#include "FileDescripter.h"
 
-struct File{
-	FILE *F = NULL;
-};
-
-bool Open(File& F,const char* Name,const char* Mode) {
+bool Open(File& F, const char* Name, const char* Mode) {
 	F.F = fopen(Name, Mode);
 	return F.F != NULL ? true : false;
 }
@@ -40,32 +33,21 @@ template<class T>
 intmax_t Print(File& F, const T* const Fo, ...) {
 	va_list VA = NULL;
 
-	va_start (VA, Fo);
+	va_start(VA, Fo);
 	intmax_t L = fprintf(F.F, Fo, VA);
-	va_end (VA);
+	va_end(VA);
 
 	return L;
 }
 
 template<class T>
 intmax_t Scan(File& F, const T* const Fo, ...) {
-	
+
 	va_list VA = NULL;
-	
+
 	va_start(VA, Fo);
 	intmax_t L = fscanf(F.F, Fo, VA);
 	va_end(VA);
 
 	return L;
-}
-
-/**/
-
-#include "FileDescripter.h"
-
-int main() {
-	File F;
-
-	Open(F, "X.txt", "");
-	Close(F);
 }
