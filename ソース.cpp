@@ -50,4 +50,5 @@ int main() {
 	File F;
 
 	Open(F, "X.txt", "");
+	Close(F);
 }
