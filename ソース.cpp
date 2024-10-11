@@ -46,6 +46,18 @@ intmax_t Print(File& F, const T* const Fo, ...) {
 	return L;
 }
 
+template<class T>
+intmax_t Scan(File& F, const T* const Fo, ...) {
+	
+	va_list VA = NULL;
+	
+	va_start(VA, Fo);
+	intmax_t L = fscanf(F.F, Fo, VA);
+	va_end(VA);
+
+	return L;
+}
+
 int main() {
 	File F;
 
